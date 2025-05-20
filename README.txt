@@ -10,8 +10,9 @@
     "dev": "nodemon index.js"
 //---------------------------------------
 
-3.- installar Swagger UI
+3.- installar Swagger UI and body parser
     $ npm install swagger-ui-express swagger-jsdoc
+    $ npm install --save body-parser
 //--------------------------------------
 
 4.- Edita tu archivo principal (por ejemplo, app.js) para configurar Swagger.
@@ -20,7 +21,7 @@
     const swaggerJsdoc = require('swagger-jsdoc');
 //-----------------------------------------
 
-5.- Configura la información básica de tu API:
+5.- Configura la información básica de tu API, esto en tu app.js:
     const swaggerOptions = {
     definition: {
         openapi: '3.0.0',

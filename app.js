@@ -3,7 +3,9 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
 //const http = require("http");
 
+
 const app = express();
+app.use(express.json());
 
 const swaggerOptions = {
     definition: {
@@ -24,11 +26,18 @@ const swaggerOptions = {
 
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
 //importar rutas
 const exampleRoutes = require('./routes/rutas');
 app.use('/api', exampleRoutes);
+
 const rutasProducto = require('./routes/productos');
 app.use('/api', rutasProducto);
+
+app.use((req, res, next) => {
+    res.status(404).send('<h1>Page not found</h1>');
+});
+
 
 app.listen(3000, () =>{
     console.log(`Servidor corriendo en http://localhost:3000`);
