@@ -3,6 +3,9 @@
     $ npm init -y
     $ npm install --save express
     $ npm install -g nodemon
+    $ npm install mongodb
+    $ npm install mongoose
+    $ npm install dotenv // es para la variables de entorno
 // -------------------------------------
 
 2.- Se agreagan los siguientes scripts al package.json 

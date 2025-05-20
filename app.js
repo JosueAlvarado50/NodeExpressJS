@@ -1,11 +1,18 @@
 const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
+require('dotenv').config();
+const connectDB = require('./Database/database');
 //const http = require("http");
 
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 app.use(express.json());
+console.log('MONGO_URI:', process.env.MONGO_URI);
+
+//conexion a MongoDB
+connectDB();
 
 const swaggerOptions = {
     definition: {
