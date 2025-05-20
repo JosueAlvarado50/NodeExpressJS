@@ -27,6 +27,8 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 //importar rutas
 const exampleRoutes = require('./routes/rutas');
 app.use('/api', exampleRoutes);
+const rutasProducto = require('./routes/productos');
+app.use('/api', rutasProducto);
 
 app.listen(3000, () =>{
     console.log(`Servidor corriendo en http://localhost:3000`);
