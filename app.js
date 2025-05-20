@@ -1,13 +1,9 @@
 const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
-const http = require("http");
+//const http = require("http");
 
 const app = express();
-
-const server = http.createServer(app);
-
-server.listen(3000)
 
 const swaggerOptions = {
     definition: {
@@ -27,8 +23,14 @@ const swaggerOptions = {
 };
 
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+//importar rutas
 const exampleRoutes = require('./routes/rutas');
 app.use('/api', exampleRoutes);
 
+app.listen(3000, () =>{
+    console.log(`Servidor corriendo en http://localhost:3000`);
+    console.log(`Documentación disponible en http://localhost:3000/docs`);
+
+})
 
