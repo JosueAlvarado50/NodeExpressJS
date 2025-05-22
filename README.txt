@@ -5,7 +5,9 @@
     $ npm install -g nodemon
     $ npm install mongodb
     $ npm install mongoose
+    $ npm install cors
     $ npm install dotenv // es para la variables de entorno
+    $ npm i cloudinary //se instala para almacenar imgs a la nube
 // -------------------------------------
 
 2.- Se agreagan los siguientes scripts al package.json 
